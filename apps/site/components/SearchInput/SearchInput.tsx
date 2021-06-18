@@ -23,7 +23,7 @@ export function SearchInput() {
         placeholder="Nunca dejes de buscar" />
 
       <button type="submit">
-        <img src="/images/ic_Search.png" />
+        <img src="/images/ic_search.png" />
       </button>
     </form>
   );

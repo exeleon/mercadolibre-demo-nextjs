@@ -1,65 +1,56 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import { ItemResult } from '@mercadolibre-demo-nextjs/api-interfaces';
+import { numberFormat } from 'apps/site/common/utils/number-format';
+import Breadcrumbs from 'apps/site/components/Breadcrumbs/Breadcrumbs';
 import styles from './items.module.scss';
-
-type Item = {
-  id: string;
-  title: string;
-  thumbnail: string;
-}
 
 export function ItemDetail({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className={styles.page}>
-      <Breadcrumbs />
+      <Breadcrumbs categories={data.categories } />
 
       <div className={styles.detail}>
         <div className={styles.image}>
           <Image
-            src={data.thumbnail}
+            src={data.item.picture}
             height="680px"
             width="680px"
-            alt={data.title}
+            alt={data.item.title}
           />
         </div>
 
         <div className={styles.side_info}>
           <div className={styles.status}>
-            <span>Nuevo - 234 vendidos</span>
+            <span>{data.item.condition == 'new' ? 'Nuevo' : 'Usado'} - {data.item.sold_quantity} vendidos</span>
           </div>
-          <h1>{data.title}</h1>
+          <h1>{data.item.title}</h1>
           <div className={styles.price}>
-            <span>$ 1.980</span>
+            <span>{numberFormat(data.item.price.amount, data.item.price.currency)}</span>
           </div>
           <button className={styles.purchase_button}>Comprar</button>
         </div>
 
         <div className={styles.description}>
           <h2>Descripción del producto</h2>
-          <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci dignissimos iusto cupiditate quo necessitatibus sunt illum, fuga enim, nam officiis odio autem qui itaque accusantium quidem fugit tenetur saepe! Qui.
-
-          </p>
+          <p>{data.item.description}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log("🚀 ~ file: items.tsx ~ line 35 ~ constgetServerSideProps:GetServerSideProps= ~ context", context.params)
-  const res = await fetch('https://api.mercadolibre.com/items/' + context.params.slug)
-  const data: Item = await res.json()
+export const getServerSideProps: GetServerSideProps<{ data: ItemResult }> = async (context) => {
+  const res = await fetch('http://localhost:3333/api/items/' + context.params.slug);
+  const data: ItemResult = await res.json();
 
   return {
     props: {
       data,
     },
-  }
+  };
 }
 
 export default ItemDetail;

@@ -1,41 +1,43 @@
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
-import ItemCard from '../../components/ItemCard/ItemCard';
+import { SearchResult } from '@mercadolibre-demo-nextjs/api-interfaces';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import ItemCard from '../../components/ItemCard/ItemCard';
 import styles from './items.module.scss';
-
-type Data = {
-  results: any[]
-}
 
 export function Items({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div className={styles.page}>
-      <Breadcrumbs />
+    <React.Fragment>
+      <Breadcrumbs categories={data.categories} />
 
-      <div className={styles.list}>
-        {data.results.slice(0, 5).map(item => (
-          <ItemCard key={item.id} item={item} />
-        ))}
-      </div>
-    </div>
+      {data.items.length
+        ? (<div className={styles.list}>
+            {data.items.map(item => (<ItemCard key={item.id} item={item} />))}
+          </div>)
+        : (<div className={styles.no_results}>
+            <div>
+              <h3>No hay publicaciones que coincidan con tu búsqueda.</h3>
+              <ul>
+                <li><strong>Revisa la ortografía</strong> de la palabra.</li>
+                <li>Utiliza <strong>palabras más genéricas</strong> o menos palabras.</li>
+              </ul>
+            </div>
+          </div>)
+      }
+    </React.Fragment>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log("🚀 ~ file: items.tsx ~ line 35 ~ constgetServerSideProps:GetServerSideProps= ~ context", context.query)
-  const res = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + context.query.search)
-  const data: Data = await res.json()
-  console.log("🚀 ~ file: index.tsx ~ line 32 ~ constgetServerSideProps:GetServerSideProps= ~ data", data.results[0].title)
+export const getServerSideProps: GetServerSideProps<{ data: SearchResult }> = async (context) => {
+  const res = await fetch('http://localhost:3333/api/items?q=' + context.query.search);
+  const data: SearchResult = await res.json();
 
   return {
     props: {
       data,
     },
-  }
+  };
 }
 
 export default Items;

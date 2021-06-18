@@ -1,2 +1,14 @@
-.page {
+.welcome {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 42px 40px 32px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+
+  * {
+    text-align: center;
+  }
 }

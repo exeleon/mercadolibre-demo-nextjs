@@ -4,6 +4,23 @@
 }
 
 .breadcrumbs a {
+  cursor: pointer;
   color: #999999;
+  margin-right: 10px;
   text-decoration: none;
+}
+
+.breadcrumbs a:last-child {
+  font-weight: bold;
+}
+
+.breadcrumbs a::after {
+  content: '\203A';
+  padding-left: 10px;
+  font-size: 18px;
+  cursor: initial;
+}
+
+.breadcrumbs a:last-child::after {
+  content: '';
 }

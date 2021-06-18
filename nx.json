@@ -19,6 +19,12 @@
     }
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
     "site": {
       "tags": []
     },

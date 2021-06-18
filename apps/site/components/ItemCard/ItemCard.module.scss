@@ -15,7 +15,7 @@
 .image {
   width: 180px;
   height: 180px;
-  padding: 0 16px;
+  margin-right: 16px;
   border-radius: 4px;
 }
 
@@ -24,11 +24,20 @@
   padding-right: 50px;
 }
 
-.price_wrapper {
+.price_row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 32px;
+}
+
+.price_wrapper {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-left: 10px;
+  }
 }
 
 .price {

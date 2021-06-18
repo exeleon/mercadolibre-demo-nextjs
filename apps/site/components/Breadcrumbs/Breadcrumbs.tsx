@@ -1,14 +1,13 @@
 import React from 'react';
-import Link from 'next/link'
 
 import styles from './Breadcrumbs.module.scss';
 
-export function Breadcrumbs() {
+export function Breadcrumbs({ categories }: { categories: string[] }) {
   return (
     <div className={styles.breadcrumbs}>
-      <Link href="/">
-        <a>Back to home</a>
-      </Link>
+      {categories.map((category, i) => (
+        <a key={i}>{category}</a>
+      ))}
     </div>
   );
 }
