@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+  color: #333333;
+}
+
+.container a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.image {
+  width: 180px;
+  height: 180px;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.description {
+  width: 100%;
+  padding-right: 50px;
+}
+
+.price_wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.city {
+  font-size: 12px;
+}
+
+.title {
+  font-size: 18px;
+}

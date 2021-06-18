@@ -7,4 +7,7 @@ module.exports = withNx({
     // See: https://github.com/gregberge/svgr
     svgr: true,
   },
+  images: {
+    domains: ['http2.mlstatic.com'],
+  },
 });

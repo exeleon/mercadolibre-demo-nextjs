@@ -1,8 +1,9 @@
 import React from 'react';
 import { AppProps } from 'next/app';
+import Image from 'next/image'
 import Head from 'next/head';
-import { ReactComponent as NxLogo } from '../public/nx-logo-white.svg';
 import './styles.css';
+import SearchInput from '../components/SearchInput/SearchInput';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,12 +12,28 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to site!</title>
       </Head>
       <div className="app">
-        <header className="flex">
-          <NxLogo width="75" height="50" />
-          <h1>Welcome to site!</h1>
+        <header className="toolbar">
+          <div className="container">
+            <div className="toolbar-wrapper">
+              <div style={{ marginRight: 30, display: 'flex' }}>
+                <Image
+                  src="/images/Logo_ML.png"
+                  height={36}
+                  width={53}
+                  alt="Mercadolibre"
+                />
+              </div>
+              <SearchInput />
+            </div>
+          </div>
         </header>
+
         <main>
-          <Component {...pageProps} />
+          <div className="container">
+            <div className="main-wrapper">
+              <Component {...pageProps} />
+            </div>
+          </div>
         </main>
       </div>
     </>
