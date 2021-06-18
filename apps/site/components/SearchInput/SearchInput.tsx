@@ -1,12 +1,16 @@
-import React from 'react';
-import Link from 'next/link'
+import React, { useRef } from 'react';
+import { useRouter } from 'next/router';
 
 import styles from './SearchInput.module.scss';
 
 export function SearchInput() {
+  const router = useRouter();
+  const textInput = useRef(null);
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('You clicked submit.');
+    const keywords = textInput.current.value;
+    router.push(`/items?search=${keywords}`);
   }
 
   return (
@@ -15,7 +19,7 @@ export function SearchInput() {
       onSubmit={handleSubmit}
     >
       <input
-        type="text"
+        ref={textInput}
         placeholder="Nunca dejes de buscar" />
 
       <button type="submit">

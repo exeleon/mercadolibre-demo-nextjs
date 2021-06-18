@@ -27,8 +27,9 @@ export function Items({ data }: InferGetServerSidePropsType<typeof getServerSide
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log("🚀 ~ file: items.tsx ~ line 35 ~ constgetServerSideProps:GetServerSideProps= ~ context", context.query)
-  const res = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + context.query)
+  const res = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + context.query.search)
   const data: Data = await res.json()
+  console.log("🚀 ~ file: index.tsx ~ line 32 ~ constgetServerSideProps:GetServerSideProps= ~ data", data.results[0].title)
 
   return {
     props: {

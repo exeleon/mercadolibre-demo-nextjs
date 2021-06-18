@@ -2,8 +2,10 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import Image from 'next/image'
 import Head from 'next/head';
-import './styles.css';
+import Link from 'next/link';
+
 import SearchInput from '../components/SearchInput/SearchInput';
+import './styles.scss';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,12 +18,16 @@ function CustomApp({ Component, pageProps }: AppProps) {
           <div className="container">
             <div className="toolbar-wrapper">
               <div style={{ marginRight: 30, display: 'flex' }}>
-                <Image
-                  src="/images/Logo_ML.png"
-                  height={36}
-                  width={53}
-                  alt="Mercadolibre"
-                />
+                <Link href="/">
+                  <a>
+                    <Image
+                      src="/images/Logo_ML.png"
+                      height={36}
+                      width={53}
+                      alt="Mercadolibre"
+                    />
+                  </a>
+                </Link>
               </div>
               <SearchInput />
             </div>

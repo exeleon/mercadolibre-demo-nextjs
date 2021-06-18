@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+}
+
+.app {
+  font-family: sans-serif;
+}
+
+.container {
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.toolbar {
+  height: 56px;
+  background-color: #FFE600;
+}
+
+.toolbar-wrapper {
+  display: flex;
+  align-items: center;
+  grid-column: 2 / 12;
+}
+
+.app main {
+  background-color: #EEEEEE;
+  min-height: calc(100vh - 56px);
+}
+
+.main-wrapper {
+  grid-column: 2 / 12;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+
+$colors: (
+  'yellow' : #FFE600,
+  'blue'   : #3483FA,    
+  'white'  : #FFFFFF,
+  'gray'   : #333333,
+  'gray-1' : #666666,
+  'gray-2' : #999999,
+  'gray-3' : #EEEEEE,
+);
+
+@each $name, $color in $colors {
+  .bg {
+    &-#{$name}{ background-color: $color; }
+  }
+}
+
+
+$spacers: (
+  'sm' : 16px,
+  'lg' : 32px,
+);
+
+@each $name, $spacer in $spacers {
+  .p {
+    &-#{$name}{ padding: $spacer; }
+    &t-#{$name}{ padding-top: $spacer; }
+    &r-#{$name}{ padding-right: $spacer; }
+    &b-#{$name}{ padding-bottom: $spacer; }
+    &l-#{$name}{ padding-left: $spacer; }
+  }
+
+  .m {
+    &-#{$name}{ margin: $spacer; }
+    &t-#{$name}{ margin-top: $spacer; }
+    &r-#{$name}{ margin-right: $spacer; }
+    &b-#{$name}{ margin-bottom: $spacer; }
+    &l-#{$name}{ margin-left: $spacer; }
+  }
+}

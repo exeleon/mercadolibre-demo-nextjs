@@ -10,13 +10,9 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.scss file.
    */
   return (
-    <div className={styles.page}>
-      <Link href="/items?search=celular">
-        <a>Search results</a>
-      </Link>
-      <Link href="/items/MLA883778460">
-        <a>Item X</a>
-      </Link>
+    <div className="bg-white rounded p-sm mt-lg">
+      <h1>Bienvenido al Demo!</h1>
+      <p>Utiliza el buscador para encontrar algún artículo.</p>
     </div>
   );
 }
