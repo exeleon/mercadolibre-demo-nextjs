@@ -16,15 +16,13 @@
   background-color: $white;
 
   h3 {
-    margin: 0;
     font-size: $text-xl;
     margin-bottom: $space-lg;
   }
 
   ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    list-style: disc;
+    padding-left: $space-md;
   }
 
   li {

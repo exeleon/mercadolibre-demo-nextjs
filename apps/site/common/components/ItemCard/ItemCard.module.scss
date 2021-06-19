@@ -46,15 +46,19 @@
   }
   
   .price {
+    display: inline-flex;
     font-size: $text-xl;
     font-weight: 400;
   
     sup {
-      font-size: $text-base;
+      margin-top: 1px;
+      font-size: $text-sm;
+      vertical-align: super;
     }
   }
   
   .city {
+    color: $gray-1;
     font-size: $text-xs;
   }
   
@@ -64,13 +68,11 @@
     text-decoration: none;
     
     h2 {
-      margin: 0;
       font-weight: 400;
       font-size: $text-lg;
     }
   }
 }
-
 
 @media (min-width: $md) {
   .container {

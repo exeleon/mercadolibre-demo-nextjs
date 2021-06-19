@@ -1,30 +1,30 @@
 @import 'apps/site/styles/variables.scss';
 
-.breadcrumbs {
+.wrapper {
   display: flex;
   flex-wrap: wrap;
   font-size: $text-sm;
   padding: $space-md 0;
-}
 
-.breadcrumbs a {
-  color: $gray-2;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: $space-sm;
-}
-
-.breadcrumbs a:last-child {
-  font-weight: bold;
-}
-
-.breadcrumbs a::after {
-  content: '\203A';
-  font-size: $text-lg;
-  cursor: initial;
-  padding-left: $space-sm;
-}
-
-.breadcrumbs a:last-child::after {
-  content: '';
+  a {
+    color: $gray-2;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: $space-sm;
+  }
+  
+  a:last-child {
+    font-weight: bold;
+  }
+  
+  a::after {
+    content: '\203A';
+    font-size: $text-lg;
+    cursor: initial;
+    padding-left: $space-sm;
+  }
+  
+  a:last-child::after {
+    content: '';
+  }
 }

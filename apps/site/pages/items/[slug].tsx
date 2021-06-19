@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 import { ItemResult } from '@mercadolibre-demo-nextjs/api-interfaces';
-import { numberFormat } from 'apps/site/common/utils/number-format';
+import { numberFormat } from 'apps/site/common/utils/numberFormat';
 import Breadcrumbs from 'apps/site/common/components/Breadcrumbs/Breadcrumbs';
 import styles from './ItemDetail.module.scss';
 
@@ -24,13 +24,13 @@ export function ItemDetail({ data }: InferGetServerSidePropsType<typeof getServe
 
         <div className={styles.sidebar}>
           <div className={styles.status}>
-            <span>{data.item.condition == 'new' ? 'Nuevo' : 'Usado'} - {data.item.sold_quantity} vendidos</span>
+            <span>{data.item.condition === 'new' ? 'Nuevo' : 'Usado'} - {data.item.sold_quantity} vendidos</span>
           </div>
           <h1>{data.item.title}</h1>
           <div className={styles.price}>
             <span>
               {numberFormat(data.item.price.amount, data.item.price.currency)}
-              {data.item.price.decimals != 0 && <sup>{data.item.price.decimals}</sup>}
+              {data.item.price.decimals !== 0 && <sup>{data.item.price.decimals}</sup>}
             </span>
           </div>
           <button className={styles.purchase_button}>Comprar</button>

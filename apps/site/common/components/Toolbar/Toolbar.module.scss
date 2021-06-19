@@ -12,6 +12,7 @@
 
 .logo {
   display: flex;
+  flex-shrink: 0;
   margin-right: $space-md;
 }
 
