@@ -1,0 +1,27 @@
+@import 'apps/site/src/styles/theme.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 42px $space-lg*0.8 $space-lg;
+  border-radius: $border-radius;
+  background-color: $white;
+
+  h3 {
+    font-size: $text-xl;
+    margin-bottom: $space-lg;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: $space-md;
+  }
+
+  li {
+    color: $gray-1;
+    font-size: $text-base;
+    margin-bottom: $space-sm;
+  }
+}

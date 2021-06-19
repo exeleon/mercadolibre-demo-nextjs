@@ -1,0 +1,104 @@
+@import 'apps/site/src/styles/theme.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-md 0;
+  border-bottom: 1px solid $gray-3;
+  background-color: $white;
+  color: $gray;
+}
+
+.image {
+  a {
+    width: 180px;
+    height: 180px;
+    display: block;
+  }
+
+  img {
+    border-radius: $border-radius;
+  }
+}
+
+.description {
+  width: 100%;
+  padding-top: $space-md;
+  padding-bottom: $space-md;
+
+  .price_row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: $space-lg;
+  }
+  
+  .price_wrapper {
+    display: flex;
+    align-items: center;
+  
+    img {
+      margin-left: $space-sm;
+    }
+  }
+  
+  .price {
+    display: inline-flex;
+    font-size: $text-xl;
+    font-weight: 400;
+  
+    sup {
+      margin-top: 1px;
+      font-size: $text-sm;
+      vertical-align: super;
+    }
+  }
+  
+  .city {
+    color: $gray-1;
+    font-size: $text-xs;
+  }
+  
+  .title {
+    color: $gray;
+    display: block;
+    text-decoration: none;
+    
+    h2 {
+      font-weight: 400;
+      font-size: $text-lg;
+    }
+  }
+}
+
+@include is-min-width(md) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .image {
+    margin-right: $space-md;
+  }
+
+  .description {
+    padding-right: $space-lg;
+
+    .title {
+      width: 80%;
+    }
+  }
+}
+
+@include is-min-width(lg) {
+  .description {
+    padding-right: 50px;
+
+    .title {
+      width: 60%;
+    }
+  }
+}

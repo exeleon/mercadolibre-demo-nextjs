@@ -86,7 +86,7 @@
     },
     "site": {
       "root": "apps/site",
-      "sourceRoot": "apps/site",
+      "sourceRoot": "apps/site/src",
       "projectType": "application",
       "targets": {
         "build": {

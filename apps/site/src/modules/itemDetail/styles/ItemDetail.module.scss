@@ -1,0 +1,134 @@
+@import 'apps/site/src/styles/theme.scss';
+
+.wrapper {
+  display: grid;
+  gap: $space-md;
+  color: $gray;
+  padding: $space-md;
+  background-color: $white;
+  border-radius: $border-radius;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar {
+  .status {
+    font-size: $text-sm;
+    margin-bottom: $space-md;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: $text-lg;
+    margin-bottom: $space-lg;
+  }
+}
+
+.price {
+  font-weight: 400;
+  font-size: $text-2xl;
+  margin-bottom: $space-lg;
+
+  span {
+    display: inline-flex;
+  }
+
+  sup {
+    margin-top: 2px;
+    font-size: $text-sm;
+    vertical-align: super;
+  }
+}
+
+.purchase_button {
+  width: 100%;
+  font-size: $text-lg;
+  padding: $space-sm;
+  color: $white;
+  background-color: $blue;
+  border: none;
+  border-radius: $border-radius;
+}
+
+.description {
+  margin-top: $space-lg;
+
+  h2 {
+    font-size: $text-xl;
+    margin-bottom: $space-lg;
+  }
+
+  p {
+    color: $gray-1;
+    font-size: $text-base;
+  }
+}
+
+
+@include is-min-width(md) {
+  .wrapper {
+    padding: $space-lg;
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .image {
+    grid-column: 1 / 6;
+    justify-content: flex-start;
+  }
+
+  .sidebar {
+    grid-column: 6 / 11;
+
+    h1 {
+      font-size: $text-xl;
+    }
+  }
+
+  .price {
+    font-size: $text-3xl;
+
+    sup {
+      margin-top: 5px;
+      font-size: $text-xl;
+    }
+  }
+
+  .description {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin-top: $space-lg * 2;
+
+    h2 {
+      font-size: $text-2xl;
+    }
+  }
+}
+
+@include is-min-width(lg) {
+  .image,
+  .description {
+    grid-column: 1 / 7;
+  }
+
+  .image {
+    margin-right: $space-lg;
+  }
+
+  .sidebar {
+    grid-column: 7 / 11;
+  }
+}
+
+@include is-min-width(xl) {
+  .image,
+  .description {
+    grid-column: 1 / 8;
+  }
+
+  .sidebar {
+    grid-column: 8 / 11;
+  }
+}

@@ -3,14 +3,16 @@ export interface Author {
   lastname: string;
 }
 
+export interface Currency {
+  currency: string;
+  amount: number;
+  decimals: number;
+}
+
 export interface SearchItem {
   id: string;
   title: string;
-  price: {
-    currency: string;
-    amount: number;
-    decimals: number;
-  };
+  price: Currency;
   picture: string;
   condition: string;
   free_shipping: boolean;

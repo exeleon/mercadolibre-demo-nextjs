@@ -1,0 +1,23 @@
+@import 'apps/site/src/styles/theme.scss';
+
+.toolbar {
+  height: $toolbar-height;
+  background-color: $yellow;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: $space-md;
+}
+
+@include is-min-width(md) {
+  .logo {
+    margin-right: $space-lg;
+  }
+}
