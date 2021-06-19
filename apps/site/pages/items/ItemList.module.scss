@@ -1,0 +1,35 @@
+@import 'apps/site/styles/variables.scss';
+
+.results {
+  padding: 0 $space-md;
+  background-color: $white;
+  border-radius: $border-radius;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 42px 40px $space-lg;
+  border-radius: $border-radius;
+  background-color: $white;
+
+  h3 {
+    margin: 0;
+    font-size: $text-xl;
+    margin-bottom: $space-lg;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    color: $gray-1;
+    font-size: $text-base;
+    margin-bottom: $space-sm;
+  }
+}

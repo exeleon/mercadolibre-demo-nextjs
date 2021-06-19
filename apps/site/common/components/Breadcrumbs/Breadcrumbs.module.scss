@@ -1,13 +1,17 @@
+@import 'apps/site/styles/variables.scss';
+
 .breadcrumbs {
-  font-size: 14px;
-  padding: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: $text-sm;
+  padding: $space-md 0;
 }
 
 .breadcrumbs a {
+  color: $gray-2;
   cursor: pointer;
-  color: #999999;
-  margin-right: 10px;
   text-decoration: none;
+  margin-right: $space-sm;
 }
 
 .breadcrumbs a:last-child {
@@ -16,9 +20,9 @@
 
 .breadcrumbs a::after {
   content: '\203A';
-  padding-left: 10px;
-  font-size: 18px;
+  font-size: $text-lg;
   cursor: initial;
+  padding-left: $space-sm;
 }
 
 .breadcrumbs a:last-child::after {

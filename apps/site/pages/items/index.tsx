@@ -2,9 +2,9 @@ import React from 'react';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 import { SearchResult } from '@mercadolibre-demo-nextjs/api-interfaces';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
-import ItemCard from '../../components/ItemCard/ItemCard';
-import styles from './items.module.scss';
+import Breadcrumbs from '../../common/components/Breadcrumbs/Breadcrumbs';
+import ItemCard from '../../common/components/ItemCard/ItemCard';
+import styles from './ItemList.module.scss';
 
 export function Items({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
@@ -12,10 +12,10 @@ export function Items({ data }: InferGetServerSidePropsType<typeof getServerSide
       <Breadcrumbs categories={data.categories} />
 
       {data.items.length
-        ? (<div className={styles.list}>
+        ? (<div className={styles.results}>
             {data.items.map(item => (<ItemCard key={item.id} item={item} />))}
           </div>)
-        : (<div className={styles.no_results}>
+        : (<div className={styles.empty}>
             <div>
               <h3>No hay publicaciones que coincidan con tu búsqueda.</h3>
               <ul>

@@ -1,0 +1,22 @@
+@import 'apps/site/styles/variables.scss';
+
+.toolbar {
+  height: $toolbar-height;
+  background-color: $yellow;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  margin-right: $space-md;
+}
+
+@media (min-width: $md) {
+  .logo {
+    margin-right: $space-lg;
+  }
+}

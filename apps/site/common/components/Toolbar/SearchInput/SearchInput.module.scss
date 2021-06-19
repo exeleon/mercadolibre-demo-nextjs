@@ -1,0 +1,34 @@
+@import 'apps/site/styles/variables.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: $text-sm;
+  padding: 8px 15px;
+  border-radius: $border-radius 0 0 $border-radius;
+}
+
+.container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 45px;
+  border: none;
+  cursor: pointer;
+  background-color: $gray-3;
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+@media (min-width: $md) {
+  .container input {
+    font-size: $text-lg;
+  }
+}

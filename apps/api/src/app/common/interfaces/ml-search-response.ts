@@ -1,4 +1,4 @@
-export interface MLSearchResponse {
+export interface MLSearch {
   site_id:           SiteID;
   query:             string;
   paging:            Paging;
@@ -11,7 +11,7 @@ export interface MLSearchResponse {
   available_filters: AvailableFilter[];
 }
 
-export interface MLItemResponse {
+export interface MLItem {
   id:                               string;
   site_id:                          string;
   title:                            string;
@@ -68,7 +68,7 @@ export interface MLItemResponse {
   channels:                         string[];
 }
 
-export interface MLItemDescriptionResponse {
+export interface MLItemDescription {
   text:         string;
   plain_text:   string;
   last_updated: Date;
