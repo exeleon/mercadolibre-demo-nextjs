@@ -3,16 +3,16 @@ import Image from 'next/image'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 import { ItemResult } from '@mercadolibre-demo-nextjs/api-interfaces';
-import { numberFormat } from 'apps/site/common/utils/numberFormat';
-import Breadcrumbs from 'apps/site/common/components/Breadcrumbs/Breadcrumbs';
-import styles from './ItemDetail.module.scss';
+import { numberFormat } from '../../common/utils/numberFormat';
+import Breadcrumbs from '../../common/components/Breadcrumbs/Breadcrumbs';
+import styles from './slug.module.scss';
 
 export function ItemDetail({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Breadcrumbs categories={data.categories } />
 
-      <div className={styles.detail}>
+      <div className={styles.wrapper}>
         <div className={styles.image}>
           <Image
             src={data.item.picture}

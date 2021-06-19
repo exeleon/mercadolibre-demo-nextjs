@@ -1,17 +1,11 @@
-@import 'apps/site/styles/variables.scss';
+@import 'apps/site/styles/theme.scss';
 
-.results {
-  padding: 0 $space-md;
-  background-color: $white;
-  border-radius: $border-radius;
-}
-
-.empty {
+.wrapper {
   display: flex;
   justify-content: center;
   max-width: 80%;
   margin: 0 auto;
-  padding: 42px 40px $space-lg;
+  padding: 42px $space-lg*0.8 $space-lg;
   border-radius: $border-radius;
   background-color: $white;
 

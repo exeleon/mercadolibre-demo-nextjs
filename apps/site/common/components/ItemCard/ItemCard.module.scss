@@ -1,4 +1,5 @@
-@import 'apps/site/styles/variables.scss';
+@import 'apps/site/styles/theme.scss';
+@import 'apps/site/styles/mixins.scss';
 
 .container {
   width: 100%;
@@ -74,7 +75,7 @@
   }
 }
 
-@media (min-width: $md) {
+@include is-min-width(md) {
   .container {
     flex-direction: row;
     align-items: flex-start;
@@ -93,7 +94,7 @@
   }
 }
 
-@media (min-width: $lg) {
+@include is-min-width(lg) {
   .description {
     padding-right: 50px;
 

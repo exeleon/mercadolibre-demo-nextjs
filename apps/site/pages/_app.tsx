@@ -18,7 +18,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"/>
 
-        <link rel="manifest" href="site.webmanifest" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#FFE600" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Demo Mercadolibre" />
@@ -28,7 +28,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 
       <Toolbar />
 
-      <main>
+      <main className="main">
         <div className="container">
           <div className="main-wrapper">
             <Component {...pageProps} />

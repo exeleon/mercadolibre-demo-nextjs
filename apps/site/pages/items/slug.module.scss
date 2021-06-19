@@ -1,6 +1,6 @@
-@import 'apps/site/styles/variables.scss';
+@import 'apps/site/styles/theme.scss';
 
-.detail {
+.wrapper {
   display: grid;
   gap: $space-md;
   color: $gray;
@@ -68,8 +68,8 @@
 }
 
 
-@media (min-width: $md) {
-  .detail {
+@include is-min-width(md) {
+  .wrapper {
     padding: $space-lg;
     grid-template-columns: repeat(10, 1fr);
   }
@@ -107,7 +107,7 @@
   }
 }
 
-@media (min-width: $lg) {
+@include is-min-width(lg) {
   .image,
   .description {
     grid-column: 1 / 7;
@@ -122,7 +122,7 @@
   }
 }
 
-@media (min-width: $xl) {
+@include is-min-width(xl) {
   .image,
   .description {
     grid-column: 1 / 8;

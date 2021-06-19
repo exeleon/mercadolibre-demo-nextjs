@@ -1,4 +1,4 @@
-@import 'apps/site/styles/variables.scss';
+@import 'apps/site/styles/theme.scss';
 
 .toolbar {
   height: $toolbar-height;
@@ -16,7 +16,7 @@
   margin-right: $space-md;
 }
 
-@media (min-width: $md) {
+@include is-min-width(md) {
   .logo {
     margin-right: $space-lg;
   }

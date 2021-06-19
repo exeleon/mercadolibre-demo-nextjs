@@ -1,4 +1,4 @@
-@import 'apps/site/styles/variables.scss';
+@import 'apps/site/styles/theme.scss';
 
 .container {
   width: 100%;
@@ -31,7 +31,7 @@
   }
 }
 
-@media (min-width: $md) {
+@include is-min-width(md) {
   .container input {
     font-size: $text-lg;
   }

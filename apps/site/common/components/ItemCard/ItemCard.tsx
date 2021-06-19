@@ -9,18 +9,18 @@ import styles from './ItemCard.module.scss';
 export function ItemCard({ item }: { item: SearchItem }) {
   return (
     <div className={styles.container}>
-          <div className={styles.image}>
-      <Link href={`/items/${item.id}`}>
-        <a>
+      <div className={styles.image}>
+        <Link href={`/items/${item.id}`}>
+          <a>
             <Image
               src={item.picture}
               height={180}
               width={180}
               alt={item.title}
             />
-        </a>
-      </Link>
-          </div>
+          </a>
+        </Link>
+      </div>
 
       <div className={styles.description}>
         <div className={styles.price_row}>
@@ -39,7 +39,6 @@ export function ItemCard({ item }: { item: SearchItem }) {
             <h2>{item.title}</h2>
           </a>
         </Link>
-
       </div>
     </div>
   );

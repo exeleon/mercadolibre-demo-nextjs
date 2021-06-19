@@ -1,12 +1,12 @@
 @import 'reset.scss';
-@import 'variables.scss';
+@import 'theme.scss';
 
 body {
   color: $gray;
   font-family: sans-serif;
 }
 
-main {
+.main {
   box-sizing: border-box;
   padding-bottom: $space-lg;
   background-color: $gray-3;
@@ -28,46 +28,17 @@ main {
   padding-right: $space-sm;
 }
 
-@media (min-width: $sm) {
-  .container { max-width: $sm; }
+// Containers by breakpoint
+@each $name, $width in $breakpoints {
+  @media (min-width: $width) {
+    .container { max-width: $width; }
 
-  .main-wrapper {
-    grid-column: 2 / 12;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media (min-width: $md) {
-  .container { max-width: $md; }
-}
-
-@media (min-width: $lg) {
-  .container { max-width: $lg; }
-}
-
-@media (min-width: $xl) {
-  .container { max-width: $xl; }
-}
-
-@media (min-width: $_2xl) {
-  .container { max-width: $_2xl; }
-}
-
-
-// Generate background colors
-$colors: (
-  'yellow': $yellow,
-  'blue':   $blue,    
-  'white':  $white,
-  'gray':   $gray,
-  'gray-1': $gray-1,
-  'gray-2': $gray-2,
-  'gray-3': $gray-3,
-);
-
-@each $name, $color in $colors {
-  .bg {
-    &-#{$name}{ background-color: $color; }
+    @if $name == 'sm' {
+      .main-wrapper {
+        grid-column: 2 / 12;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 }
