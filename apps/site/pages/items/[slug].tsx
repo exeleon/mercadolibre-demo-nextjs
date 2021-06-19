@@ -5,9 +5,21 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { ItemResult } from '@mercadolibre-demo-nextjs/api-interfaces';
 import { numberFormat } from '../../common/utils/numberFormat';
 import Breadcrumbs from '../../common/components/Breadcrumbs/Breadcrumbs';
+import ErrorWrapper from '../../common/components/ErrorWrapper/ErrorWrapper';
 import styles from './slug.module.scss';
 
-export function ItemDetail({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+type SlugProps = {
+  statusCode: number,
+  data: ItemResult
+};
+
+export function ItemDetail({ statusCode, data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  if (statusCode !== 0) {
+    return (
+      <ErrorWrapper statusCode={statusCode} />
+    );
+  }
+
   return (
     <>
       <Breadcrumbs categories={data.categories } />
@@ -45,12 +57,14 @@ export function ItemDetail({ data }: InferGetServerSidePropsType<typeof getServe
   );
 }
 
-export const getServerSideProps: GetServerSideProps<{ data: ItemResult }> = async (context) => {
+export const getServerSideProps: GetServerSideProps<SlugProps> = async (context) => {
   const res = await fetch('http://localhost:3333/api/items/' + context.params.slug);
+  const statusCode = res.ok ? 0 : res.status;
   const data: ItemResult = await res.json();
 
   return {
     props: {
+      statusCode,
       data,
     },
   };
