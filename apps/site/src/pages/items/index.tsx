@@ -1,9 +1,20 @@
 import React from 'react';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType
+} from 'next'
 
 import { SearchResult } from '@mercadolibre-demo-nextjs/api-interfaces';
-import { Breadcrumbs, ErrorWrapper } from '../../common/components';
-import { EmptyResults, ItemCard, styles } from '../../modules/itemList';
+import { API_URL } from '../../common/constants';
+import {
+  Breadcrumbs,
+  ErrorWrapper
+} from '../../common/components';
+import {
+  EmptyResults,
+  ItemCard,
+  styles
+} from '../../modules/itemList';
 
 type ItemListProps = {
   statusCode: number,
@@ -34,7 +45,7 @@ export function ItemList({ statusCode, data }: InferGetServerSidePropsType<typeo
 }
 
 export const getServerSideProps: GetServerSideProps<ItemListProps> = async (context) => {
-  const res = await fetch('http://localhost:3333/api/items?q=' + context.query.search);
+  const res = await fetch(`${API_URL}/items?q=${context.query.search}`);
   const statusCode = res.ok ? 0 : res.status;
   const data: SearchResult = await res.json();
 

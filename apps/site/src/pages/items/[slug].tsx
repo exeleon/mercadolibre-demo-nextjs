@@ -1,9 +1,16 @@
 import React from 'react';
 import Image from 'next/image'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType
+} from 'next'
 
 import { ItemResult } from '@mercadolibre-demo-nextjs/api-interfaces';
-import { Breadcrumbs, ErrorWrapper } from '../../common/components';
+import { API_URL } from '../../common/constants';
+import {
+  Breadcrumbs,
+  ErrorWrapper
+} from '../../common/components';
 import { currencyFormat } from '../../common/utils';
 import { styles } from '../../modules/itemDetail';
 
@@ -57,7 +64,7 @@ export function ItemDetail({ statusCode, data }: InferGetServerSidePropsType<typ
 }
 
 export const getServerSideProps: GetServerSideProps<ItemDetailProps> = async (context) => {
-  const res = await fetch('http://localhost:3333/api/items/' + context.params.slug);
+  const res = await fetch(`${API_URL}/items/${context.params.slug}`);
   const statusCode = res.ok ? 0 : res.status;
   const data: ItemResult = await res.json();
 
