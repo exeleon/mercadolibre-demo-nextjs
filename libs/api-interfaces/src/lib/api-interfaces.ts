@@ -25,8 +25,13 @@ export interface SearchResult {
   items: SearchItem[];
 }
 
+export type ItemDetail = SearchItem & {
+  sold_quantity: number,
+  description: string
+};
+
 export interface ItemResult {
   author: Author;
   categories: string[];
-  item: SearchItem & { sold_quantity: number, description: string };
+  item: ItemDetail;
 }

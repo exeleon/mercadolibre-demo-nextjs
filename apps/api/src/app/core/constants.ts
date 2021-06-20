@@ -4,3 +4,5 @@ export const AUTHOR_INFO = {
 };
 
 export const EMPTY_DESCRIPTION_TEXT = 'Sin descripción';
+
+export const ML_API_URL = 'https://api.mercadolibre.com';
