@@ -26,6 +26,7 @@ Run `npm start` to start the Next.js dev server. Navigate to http://localhost:42
 - Typescript
 - SCSS preprocessor
 - Monorepo structure
+- SEO friendly
 - Server-side and static rendering
 - Module-oriented folder organization
 - Use of `libs` for sharing code within the monorepo
