@@ -1,10 +1,10 @@
 
 
-# Mercadolibre Demo Next.js
+# Mercado Libre Demo Next.js
 
 This project is built with [Next.js](https://nextjs.org) and [Express](https://expressjs.com) and organized in a [Nx](https://nx.dev) monorepo.
 
-The Express app consumes the Mercadolibre API and serves a simplified version of the data to the front-end Next.js app.
+The Express app consumes the Mercado Libre API and serves a simplified version of the data to the front-end Next.js app.
 
 ## Folder structure
 
