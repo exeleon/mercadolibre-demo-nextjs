@@ -6,6 +6,7 @@ import {
 
 import { SearchResult } from '@mercadolibre-demo-nextjs/api-interfaces';
 import { API_URL } from '../../common/constants';
+import { MetaTags } from '../../common/interfaces';
 import {
   Breadcrumbs,
   ErrorWrapper
@@ -17,6 +18,7 @@ import {
 } from '../../modules/itemList';
 
 type ItemListProps = {
+  metaTags: MetaTags,
   statusCode: number,
   data: SearchResult
 };
@@ -49,9 +51,17 @@ export const getServerSideProps: GetServerSideProps<ItemListProps> = async (cont
   const statusCode = res.ok ? 0 : res.status;
   const data: SearchResult = await res.json();
 
+  const category = data.categories?.length ? data.categories[data.categories.length - 1] : '';
+  const metaTags: MetaTags = {
+    title: category,
+    description: category ? `Encuentra lo que buscas en ${category}.` : '',
+    url: context.resolvedUrl
+  };
+
   return {
     props: {
       statusCode,
+      metaTags,
       data,
     },
   };

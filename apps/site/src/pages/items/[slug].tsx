@@ -7,6 +7,7 @@ import {
 
 import { ItemResult } from '@mercadolibre-demo-nextjs/api-interfaces';
 import { API_URL } from '../../common/constants';
+import { MetaTags } from '../../common/interfaces';
 import {
   Breadcrumbs,
   ErrorWrapper
@@ -15,6 +16,7 @@ import { currencyFormat } from '../../common/utils';
 import { styles } from '../../modules/itemDetail';
 
 type ItemDetailProps = {
+  metaTags: MetaTags,
   statusCode: number,
   data: ItemResult
 };
@@ -68,9 +70,17 @@ export const getServerSideProps: GetServerSideProps<ItemDetailProps> = async (co
   const statusCode = res.ok ? 0 : res.status;
   const data: ItemResult = await res.json();
 
+  const description = data.item?.description.replace(/\s/g, ' ').substring(0, 150).trim();
+  const metaTags: MetaTags = {
+    title: data.item?.title ?? '',
+    description: description ?? '',
+    url: context.resolvedUrl
+  };
+
   return {
     props: {
       statusCode,
+      metaTags,
       data,
     },
   };
